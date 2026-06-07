@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/ai/ai",
+    "pages/edit/edit"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2563EB",
+    "navigationBarTitleText": "医生快捷回复",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F1F5F9"
+  },
+  "tabBar": {
+    "color": "#94A3B8",
+    "selectedColor": "#2563EB",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "模板",
+        "iconPath": "images/tab-template.png",
+        "selectedIconPath": "images/tab-template-active.png"
+      },
+      {
+        "pagePath": "pages/ai/ai",
+        "text": "AI生成",
+        "iconPath": "images/tab-ai.png",
+        "selectedIconPath": "images/tab-ai-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

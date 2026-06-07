@@ -1,0 +1,1 @@
+export { qwenAdapter } from './base';

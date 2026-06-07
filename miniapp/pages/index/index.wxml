@@ -1,0 +1,40 @@
+<view class="container">
+  <!-- search -->
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索模板..." value="{{keyword}}" bindinput="onSearch" />
+  </view>
+
+  <!-- category tabs -->
+  <scroll-view class="category-tabs" scroll-x>
+    <view class="tab {{activeCategory === '' ? 'active' : ''}}" bindtap="switchCategory" data-cat="">全部</view>
+    <view wx:for="{{categories}}" wx:key="*this"
+      class="tab {{activeCategory === item ? 'active' : ''}}"
+      bindtap="switchCategory" data-cat="{{item}}">{{item}}</view>
+    <view class="tab manage" bindtap="manageCategories">+</view>
+  </scroll-view>
+
+  <!-- template list -->
+  <view wx:if="{{filteredList.length === 0}}" class="empty">
+    <text class="empty-icon">📋</text>
+    <text class="empty-text">还没有模板，点击下方按钮添加</text>
+  </view>
+
+  <view wx:for="{{filteredList}}" wx:key="id" class="card">
+    <view class="card-header">
+      <text class="card-category">{{item.category}}</text>
+      <view class="card-actions">
+        <text class="action-btn" bindtap="editTemplate" data-id="{{item.id}}">编辑</text>
+        <text class="action-btn danger" bindtap="deleteTemplate" data-id="{{item.id}}">删除</text>
+      </view>
+    </view>
+    <text class="card-content">{{item.content}}</text>
+    <view class="card-footer">
+      <button class="copy-btn" bindtap="copyContent" data-content="{{item.content}}">复制</button>
+    </view>
+  </view>
+
+  <!-- fab -->
+  <view class="fab" bindtap="addTemplate">
+    <text class="fab-icon">+</text>
+  </view>
+</view>

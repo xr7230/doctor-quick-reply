@@ -1,0 +1,1 @@
+export { customAdapter } from './base';

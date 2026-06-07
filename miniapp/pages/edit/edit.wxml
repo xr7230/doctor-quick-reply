@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="section">
+    <text class="label">分类</text>
+    <picker mode="selector" range="{{categories}}" value="{{categoryIndex}}" bindchange="onCategoryChange">
+      <view class="picker-value">{{categories[categoryIndex] || '请选择'}}</view>
+    </picker>
+  </view>
+
+  <view class="section">
+    <text class="label">模板内容</text>
+    <textarea class="content-input"
+      value="{{content}}"
+      placeholder="输入回复模板，例如：&#10;您这次的检查结果一切正常，继续保持目前的方案。记得按时吃药，下个月再来复查一次。有什么不舒服随时联系我。"
+      bindinput="onContentInput"
+      maxlength="500"
+      auto-height
+    />
+    <text class="char-count">{{content.length}}/500</text>
+  </view>
+
+  <button class="save-btn" bindtap="save">保存模板</button>
+
+  <view wx:if="{{isEdit}}" class="section danger-zone">
+    <button class="delete-btn" bindtap="confirmDelete">删除此模板</button>
+  </view>
+</view>
